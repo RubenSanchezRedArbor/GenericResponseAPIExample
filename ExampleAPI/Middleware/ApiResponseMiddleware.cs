@@ -105,7 +105,7 @@ namespace ExampleAPI.Middleware
         {
             return new ApiGenericResponse<object>
             {
-                IsSuccess = false,
+                IsSuccess = isSuccess,
                 Message = message,
                 Data = data
             };
