@@ -66,6 +66,12 @@ namespace ExampleAPI.Middleware
 
                     await WriteResponseAsync(context, JsonSerializer.Serialize(genericResponse));
                 }
+                catch (NoContentException exb)
+                {
+                    context.Response.StatusCode = StatusCodes.Status204NoContent;
+
+                    context.Response.Body = originalBodyStream;
+                }
                 catch (Exception ex)
                 {
                     //TODO: Loggear el error

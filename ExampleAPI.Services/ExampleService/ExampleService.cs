@@ -36,7 +36,7 @@ namespace ExampleAPI.Services.ExampleService
 
             if (exampleEntity == null)
             {
-                throw new NotFoundException(Messages.NoRecordFound);
+                throw new NoContentException(Messages.NoRecordFound);
             }
 
             return exampleEntity;
