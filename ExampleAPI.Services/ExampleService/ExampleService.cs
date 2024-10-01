@@ -34,10 +34,10 @@ namespace ExampleAPI.Services.ExampleService
         {
             var exampleEntity = (await _repository.GetAllAsync(x => x.Id == id)).FirstOrDefault();
 
-            if (exampleEntity == null)
-            {
-                throw new NoContentException(Messages.NoRecordFound);
-            }
+            //if (exampleEntity == null)
+            //{
+            //    throw new NoContentException(Messages.NoRecordFound);
+            //}
 
             return exampleEntity;
         }

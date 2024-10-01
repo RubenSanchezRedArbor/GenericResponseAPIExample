@@ -50,6 +50,12 @@ namespace ExampleAPI.Controllers
             return Ok(await _exampleService.DeleteExample(id));
         }
 
+        [HttpGet]
+        public async Task<ActionResult> GetText()
+        {
+            return Ok("Esto es una prueba");
+        }
+
         #endregion Metodos
     }
 }

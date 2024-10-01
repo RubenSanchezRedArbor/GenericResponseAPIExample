@@ -32,8 +32,9 @@ namespace ExampleAPI.Middleware
 
                     if (context.Response.StatusCode >= StatusCodes.Status200OK && context.Response.StatusCode <= Constants.StatusCodeOkMax)
                     {
-                        var genericResponse = GetResponseObject(true, Messages.OK, JsonSerializer.Deserialize<object>(responseBody));
-
+                        var genericResponse = GetResponseObject(true, Messages.OK, !string.IsNullOrWhiteSpace(responseBody) ? JsonSerializer.Deserialize<object>(responseBody) : string.Empty);
+                       
+                        context.Response.StatusCode = StatusCodes.Status200OK;
                         // Restablecer el flujo original antes de escribir la respuesta
                         context.Response.Body = originalBodyStream;
 
